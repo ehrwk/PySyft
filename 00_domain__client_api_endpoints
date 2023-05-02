@@ -1,0 +1,345 @@
+endpoints: str = {
+	'data_subject.add': 
+		APIEndpoint(
+			path='data_subject.add', 
+			name='add_data_subject', 
+			description='', 
+			doc_string='Register a data subject.', 
+			signature=<Signature (data_subject: syft.service.data_subject.data_subject.DataSubjectCreate) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>,
+			 has_self=False, 
+			 pre_kwargs=None
+			), 
+	'data_subject.get_all': 
+		APIEndpoint(
+			path='data_subject.get_all', 
+			name='get_all', 
+			description='', 
+			doc_string='Get all Data subjects', 
+			signature=<Signature () -> Union[List[syft.service.data_subject.data_subject.DataSubject], syft.service.response.SyftError]>,
+			has_self=False, 
+			pre_kwargs=None
+			),
+	'data_subject.get_members': 
+		APIEndpoint(
+			path='data_subject.get_members', 
+			name='members_for', 
+			description='', 
+			doc_string=None, 
+			signature=<Signature (data_subject_name: str) -> Union[List[syft.service.data_subject.data_subject.DataSubject], syft.service.response.SyftError]>, 
+			has_self=False, 
+			pre_kwargs=None
+			), 
+	'data_subject.get_by_name': 
+		APIEndpoint(
+			path='data_subject.get_by_name', 
+			name='get_by_name', 
+			description='', 
+			doc_string='Get a Data Subject by its name.', 
+			signature=<Signature (name: str) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, 
+			has_self=False, 
+			pre_kwargs=None
+			), 
+	'user.create': 
+		APIEndpoint(
+			path='user.create', 
+			name='create', 
+			description='', 
+			doc_string='Create a new user', 
+			signature=<Signature (user_create: syft.service.user.user.UserCreate) -> Union[syft.service.user.user.UserView, syft.service.response.SyftError]>, 
+			has_self=False, 
+			pre_kwargs=None
+			),
+	'user.view': 
+		APIEndpoint(
+			path='user.view', 
+			name='view', 
+			description='', 
+			doc_string='Get user for given uid', 
+			signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.user.user.UserView, None, syft.service.response.SyftError]>, 
+			has_self=False, 
+			pre_kwargs=None
+		), 
+	'user.get_all':
+	 	APIEndpoint(
+	 		path='user.get_all', 
+	 		name='get_all', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature () -> Union[syft.service.user.user.UserView, None, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'user.search': 
+	 	APIEndpoint(
+	 		path='user.search', 
+	 		name='search', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature (args: Any, id: syft.types.uid.UID, email: pydantic.networks.EmailStr, verify_key: syft.node.credentials.SyftVerifyKey, name: str) -> Union[List[syft.service.user.user.UserView], syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'user.update': 
+	 	APIEndpoint(
+	 		path='user.update', 
+	 		name='update', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature (uid: syft.types.uid.UID, user_update: syft.service.user.user.UserUpdate) -> Union[syft.service.user.user.UserView, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'user.delete': 
+	 	APIEndpoint(
+	 		path='user.delete', 
+	 		name='delete', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature (uid: syft.types.uid.UID) -> Union[bool, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'network.exchange_credentials_with': 
+	 	APIEndpoint(
+	 		path='network.exchange_credentials_with', 
+	 		name='exchange_credentials_with', 
+	 		description='', 
+	 		doc_string='Exchange Credentials With Another Node', 
+	 		signature=<Signature (peer: Union[syft.service.network.network_service.NodePeer, None] = None, client: Union[syft.client.client.SyftClient, None] = None) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'network.add_peer': 
+	 	APIEndpoint(
+	 		path='network.add_peer', 
+	 		name='add_peer', 
+	 		description='', 
+	 		doc_string='Add a Network Node Peer', 
+	 		signature=<Signature (peer: syft.service.network.network_service.NodePeer) -> Union[syft.service.metadata.node_metadata.NodeMetadata, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'network.add_route_for': 
+	 	APIEndpoint(
+	 		path='network.add_route_for', 
+	 		name='add_route_for', 
+	 		description='', 
+	 		doc_string='Add Route for this Node to another Node', 
+	 		signature=<Signature (route: syft.service.network.network_service.NodeRoute, peer: Union[syft.service.network.network_service.NodePeer, None] = None, client: Union[syft.client.client.SyftClient, None] = None) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'network.verify_route': 
+	 	APIEndpoint(
+	 		path='network.verify_route', 
+	 		name='verify_route', 
+	 		description='', 
+	 		doc_string='Add a Network Node Route', 
+	 		signature=<Signature (route: syft.service.network.network_service.NodeRoute) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'network.get_all_peers': 
+	 	APIEndpoint(
+	 		path='network.get_all_peers', 
+	 		name='get_all_peers', 
+	 		description='', 
+	 		doc_string='Get all Peers', 
+	 		signature=<Signature () -> Union[List[syft.service.network.network_service.NodePeer], syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'policy.get_all': 
+	 	APIEndpoint(
+	 		'path='policy.get_all', 
+	 		name='get_all', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature () -> Union[List[syft.service.policy.policy.UserPolicy], syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'policy.add': 
+	 	APIEndpoint(
+	 		path='policy.add', 
+	 		name='add', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature (policy_code: Union[syft.service.policy.policy.SubmitUserPolicy, syft.service.policy.policy.UserPolicy]) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'policy.get_by_uid': 
+	 	APIEndpoint(
+	 		path='policy.get_by_uid', 
+	 		name='get_by_uid', 
+	 		description='', doc_string=None, signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'action.np_array': 
+	 	APIEndpoint(
+	 		path='action.np_array', 
+	 		name='np_array', 
+	 		description='', 
+	 		doc_string=None, 
+	 		signature=<Signature (data: Any) -> Any>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'action.set': 
+	 	APIEndpoint(
+	 		path='action.set', 
+	 		name='set', 
+	 		description='', 
+	 		doc_string='Save an object to the action store', 
+	 		signature=<Signature (action_object: Union[syft.service.action.action_object.ActionObject, syft.types.twin_object.TwinObject]) -> Union[result.result.Ok[syft.service.action.action_object.ActionObject], result.result.Err[str]]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'action.save': 
+	 	APIEndpoint(
+	 		path='action.save', 
+	 		name='save', 
+	 		description='', 
+	 		doc_string='Save an object to the action store', signature=<Signature (action_object: Union[syft.service.action.action_object.ActionObject, syft.types.twin_object.TwinObject]) -> Union[result.result.Ok[syft.service.response.SyftSuccess], result.result.Err[str]]>, 
+	 		has_self=False, 
+	 		pre_kwargs=None
+	 	), 
+	 'action.get': 
+	 	APIEndpoint(
+	 		path='action.get', name='get', description='', doc_string='Get an object from the action store', signature=<Signature (uid: syft.types.uid.UID, twin_mode: syft.service.action.action_service.TwinMode = <TwinMode.PRIVATE: 1>) -> Union[result.result.Ok[syft.service.action.action_object.ActionObject], result.result.Err[str]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'action.get_pointer': 
+	 	APIEndpoint(
+	 		path='action.get_pointer', name='get_pointer', description='', doc_string='Get a pointer from the action store', signature=<Signature (uid: syft.types.uid.UID) -> Union[result.result.Ok[syft.service.action.action_object.ActionObjectPointer], result.result.Err[str]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'action.execute': 
+	 	APIEndpoint(
+	 		path='action.execute', name='execute', description='', doc_string='Execute an operation on objects in the action store', signature=<Signature (action: syft.service.action.action_object.Action) -> Union[result.result.Ok[syft.service.action.action_object.ActionObjectPointer], result.result.Err[result.result.Err]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'action.exists': 
+	 	APIEndpoint(
+	 		path='action.exists', name='exists', description='', doc_string='Checks if the given object id exists in the Action Store', signature=<Signature (obj_id: syft.types.uid.UID) -> Union[result.result.Ok[syft.service.response.SyftSuccess], result.result.Err[syft.service.response.SyftError]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.send': 
+	 	APIEndpoint(
+	 		path='messages.send', name='send', description='', doc_string='Send a new message', signature=<Signature (message: syft.service.message.messages.CreateMessage) -> Union[syft.service.message.messages.Message, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.get_all': 
+	 	APIEndpoint(
+	 		path='messages.get_all', name='get_all', description='', doc_string=None, signature=<Signature () -> Union[List[syft.service.message.messages.Message], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.get_all_sent': 
+	 	APIEndpoint(
+	 		path='messages.get_all_sent', name='outbox', description='', doc_string=None, signature=<Signature () -> Union[List[syft.service.message.messages.Message], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.get_all_for_status': 
+	 	APIEndpoint(
+	 		path='messages.get_all_for_status', name='get_all_for_status', description='', doc_string=None, signature=<Signature (status: syft.service.message.messages.MessageStatus) -> Union[List[syft.service.message.messages.Message], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.mark_as_delivered': 
+	 	APIEndpoint(
+	 		path='messages.mark_as_delivered', name='mark_as_delivered', description='', doc_string=None, signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.message.messages.Message, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.resolve_object': 
+	 	APIEndpoint(
+	 		path='messages.resolve_object', name='resolve_object', description='', doc_string=None, signature=<Signature (linked_obj: syft.store.linked_obj.LinkedObject) -> Union[syft.service.message.messages.Message, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'messages.clear': 
+	 	APIEndpoint(
+	 		path='messages.clear', name='clear', description='', doc_string=None, signature=<Signature () -> Union[syft.service.response.SyftError, syft.service.response.SyftSuccess]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'request.submit': 
+	 	APIEndpoint(
+	 		path='request.submit', name='submit', description='', doc_string='Submit a Request', signature=<Signature (request: syft.service.request.request.SubmitRequest, send_message: bool = True) -> Union[syft.service.request.request.Request, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'request.get_all': 
+	 	APIEndpoint(
+	 		path='request.get_all', name='get_all', description='', doc_string=None, signature=<Signature () -> Union[List[syft.service.request.request.Request], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'request.get_all_for_status': 
+	 	APIEndpoint(
+	 		path='request.get_all_for_status', name='get_all_for_status', description='', doc_string=None, signature=<Signature (status: syft.service.request.request.RequestStatus) -> Union[List[syft.service.request.request.Request], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'request.apply': 
+	 	APIEndpoint(
+	 		path='request.apply', name='apply', description='', doc_string=None, signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'request.revert': 
+	 	APIEndpoint(
+	 		path='request.revert', name='revert', description='', doc_string=None, signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'code.submit': 
+	 	APIEndpoint(
+	 		path='code.submit', name='submit', description='', doc_string='Add User Code', signature=<Signature (code: syft.service.code.user_code.SubmitUserCode) -> Union[syft.service.code.user_code.UserCode, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'code.request_code_execution': 
+	 	APIEndpoint(
+	 		path='code.request_code_execution', name='request_code_execution', description='', doc_string='Request Code execution on user code', signature=<Signature (code: syft.service.code.user_code.SubmitUserCode) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'code.get_all': 
+	 	APIEndpoint(
+	 		path='code.get_all', name='get_all', description='', doc_string='Get a Dataset', signature=<Signature () -> Union[List[syft.service.code.user_code.UserCode], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'code.get_by_id': 
+	 	APIEndpoint(
+	 		path='code.get_by_id', name='get_by_id', description='', doc_string='Get a User Code Item', signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'code.get_all_for_user': 
+	 	APIEndpoint(
+	 		path='code.get_all_for_user', name='get_all_for_user', description='', doc_string="Get All User Code Items for User's VerifyKey", signature=<Signature () -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'code.call': 
+	 	APIEndpoint(
+	 		path='code.call', name='call', description='', doc_string='Call a User Code Function', signature=<Signature (uid: syft.types.uid.UID, **kwargs: Any) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'dataset.add': 
+	 	APIEndpoint(
+	 		path='dataset.add', name='add', description='', doc_string='Add a Dataset', signature=<Signature (dataset: syft.service.dataset.dataset.CreateDataset) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'dataset.get_all': 
+	 	APIEndpoint(
+	 		path='dataset.get_all', name='get_all', description='', doc_string='Get a Dataset', signature=<Signature () -> Union[List[syft.service.dataset.dataset.Dataset], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'dataset.search': 
+	 	APIEndpoint(
+	 		path='dataset.search', name='search', description='', doc_string='Search a Dataset by name', signature=<Signature (name: str) -> Union[List[syft.service.dataset.dataset.Dataset], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 		), 
+	 'dataset.get_by_id': 
+	 	APIEndpoint(
+	 		path='dataset.get_by_id', name='get_by_id', description='', doc_string='Get a Dataset', signature=<Signature (uid: syft.types.uid.UID) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'dataset.get_by_action_id': 
+	 	APIEndpoint(
+	 		path='dataset.get_by_action_id', name='get_by_action_id', description='', doc_string='Get Datasets by an Action ID', signature=<Signature (uid: syft.types.uid.UID) -> Union[List[syft.service.dataset.dataset.Dataset], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	),
+	 'dataset.get_assets_by_action_id': 
+	 	APIEndpoint(
+	 		path='dataset.get_assets_by_action_id', name='get_assets_by_action_id', description='', doc_string='Get Assets by an Action ID', signature=<Signature (uid: syft.types.uid.UID) -> Union[List[syft.service.dataset.dataset.Asset], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'dataset.delete_by_id': 
+	 	APIEndpoint(
+	 		path='dataset.delete_by_id', name='dataset_delete_by_id', description='', doc_string=None, signature=<Signature (uid: syft.types.uid.UID)>, has_self=False, pre_kwargs=None
+	 	), 
+	 'metadata.get': 
+	 	APIEndpoint(
+	 		path='metadata.get', name='get', description='', doc_string='Get Metadata', signature=<Signature () -> Union[result.result.Ok[result.result.Ok], result.result.Err[result.result.Err]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'metadata.set': 
+	 	APIEndpoint(
+	 		path='metadata.set', name='set', description='', doc_string='Set a new the Node Metadata', signature=<Signature (metadata: syft.service.metadata.node_metadata.NodeMetadata) -> Union[result.result.Ok[result.result.Ok], result.result.Err[result.result.Err]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'metadata.update': 
+	 	APIEndpoint(
+	 		path='metadata.update', name='update', description='', doc_string=None, signature=<Signature (metadata: syft.service.metadata.node_metadata.NodeMetadataUpdate) -> Union[result.result.Ok[result.result.Ok], result.result.Err[result.result.Err]]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'project.submit': 
+	 	APIEndpoint(
+	 		path='project.submit', name='submit', description='', doc_string='Submit a Project', signature=<Signature (project: syft.service.project.project.ProjectSubmit) -> Union[syft.service.response.SyftSuccess, syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	), 
+	 'project.get_all': 
+	 	APIEndpoint(
+	 		path='project.get_all', name='get_all', description='', doc_string=None, signature=<Signature () -> Union[List[syft.service.project.project.Project], syft.service.response.SyftError]>, has_self=False, pre_kwargs=None
+	 	)
+}
